@@ -1,0 +1,15 @@
+データベース名: himiz
+
+
+テーブル名: persons
+
+
+テーブル定義
+
+ID      id          int
+名前    name        varchar(100)
+性別    gender      char(2)
+誕生日  birthday    date
+出身    birthplace  varchar(100)
+
+吉高由里子
