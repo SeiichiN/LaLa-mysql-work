@@ -1,0 +1,35 @@
+データベース名: himiz
+
+create database himiz;
+
+use himiz;
+
+テーブル名: persons
+
+
+テーブル定義
+
+ID      id          int
+名前    name        varchar(100)
+性別    gender      char(2)
+誕生日  birthday    date
+出身    birthplace  varchar(100)
+
+create table persons (
+  id         int          primary key,
+  name       varchar(100),
+  gender     char(2),
+  birthday   date,
+  birthplace varchar(100)
+);
+
+insert into persons
+  (id, name, gender, birthday, birthplace)
+values
+  (1, '染谷将太',   '男性', '1992-09-03', '東京都'),
+  (2, '二階堂ふみ', '女性', '1994-09-21', '沖縄県'),
+  (3, '渡辺哲',     '男性', '1950-03-11', '愛知県'),
+  (4, '窪塚洋介',   '男性', '1979-05-07', '神奈川県'),
+  (5, '吉高由里子', '女性', '1988-07-22', '東京都');
+
+
