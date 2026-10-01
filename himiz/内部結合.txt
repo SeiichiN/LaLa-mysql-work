@@ -1,0 +1,41 @@
+データベース: himiz02
+
+結合表
+
+select
+  p.id       as id,
+  p.name     as name,
+  g.name     as gender,
+  p.birthday as birthday
+from persons p
+  inner join genders g
+  on p.gender_id = g.id
+order by p.id
+;
+
+３つの表を結合
+select
+  *
+from persons p
+  inner join genders g
+  on p.gender_id = g.id
+    inner join prefectures pr
+    on p.prefecture_id = pr.id
+order by p.id
+;
+
+表示項目を絞る
+select
+  p.id as id,
+  p.name     as name,
+  g.name     as gender,
+  p.birthday as birthday,
+  pr.name    as pref
+from persons p
+  inner join genders g
+  on p.gender_id = g.id
+    inner join prefectures pr
+    on pr.id = p.prefecture_id
+order by p.id
+;
+

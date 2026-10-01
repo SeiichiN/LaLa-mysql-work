@@ -1,0 +1,43 @@
+左外部結合
+
+左 --- from で指定したテーブル
+
+insert into employees
+  (name, age, birthday)
+values
+  ('成田三樹夫', 38, 1935);
+
+
+select
+  *
+from employees e
+  left outer join departments d
+  on e.department_id = d.id
+order by e.id
+;
+
+
+select
+  e.id   as ID,
+  e.name as 名前,
+  e.age  as 年齢,
+  d.name as 部署名
+from employees e
+  left outer join departments d
+  on e.department_id = d.id
+order by e.id
+;
+
+
+右外部結合
+
+select
+  e.id   as ID,
+  e.name as 名前,
+  e.age  as 年齢,
+  d.name as 部署名
+from employees e
+  right outer join departments d
+  on e.department_id = d.id
+order by e.id
+;

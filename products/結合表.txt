@@ -1,0 +1,19 @@
+ì‡ïîåãçá
+
+SELECT
+  *
+FROM products p
+  INNER JOIN categories c
+  ON p.category_id = c.id
+ORDER BY p.id;
+
+
+SELECT
+  p.id    as id,
+  p.name  as name,
+  c.name  as category,
+  p.price as price
+FROM products p
+  INNER JOIN categories c
+  ON p.category_id = c.id
+ORDER BY p.id;

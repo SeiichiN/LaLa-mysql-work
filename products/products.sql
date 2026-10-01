@@ -1,0 +1,41 @@
+-- データベース名: super
+
+create database if not exists super;
+
+use super;
+
+drop table if exists products;
+drop table if exists categories;
+
+create table products (
+  id          int    primary key auto_increment,
+  name        varchar(100) not null,
+  category_id int          not null,
+  price       int          not null
+);
+
+insert into products
+  (name, category_id, price)
+value
+('りんご', 1, 150),
+('バナナ', 1, 120),
+('牛乳',   2, 200),
+('パン',   3, 180);
+
+
+create table categories (
+  id   int          primary key,
+  name varchar(100) not null
+);
+
+insert into categories
+  (id, name)
+values
+(1, '果物'),
+(2, '食品');
+
+SELECT * FROM products;
+SELECT * FROM categories;
+
+
+

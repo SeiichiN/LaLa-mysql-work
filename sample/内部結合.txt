@@ -1,0 +1,32 @@
+内部結合
+
+select
+  e.id     as ID,
+  e.name   as 名前,
+  e.age    as 年齢,
+  d.name as 部署名
+from employees e
+  inner join departments d
+  on e.department_id = d.id
+order by ID
+;
+
+手順の確認
+(1)
+select
+  *
+from employees e
+  inner join departments d
+  on e.department_id = d.id
+;
+
+(2)
+select
+  e.id,
+  e.name as name,
+  d.name as busyo
+from employees e
+  inner join departments d
+  on e.department_id = d.id
+order by id
+;
