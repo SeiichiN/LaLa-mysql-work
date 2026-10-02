@@ -58,3 +58,71 @@ VALUES
 ( '千葉真一',   34, 1939, '002' ),
 ( '北大路欣也', 30, 1943, '003' ),
 ( '梶芽衣子',   26, 1947, '002' );
+
+
+=============================
+ 外部キー制約
+=============================
+
+employees表のdepartment_idの入力のとき、
+departments表に登録されているIDしか
+入力できないようにする。
+
+ALTER TABLE employees  テーブル定義の修正
+  ADD                  定義を追加
+  CONSTRAINT fk_department_id  制約名をつける
+  FOREIGN KEY (department_id) 制限をかけるカラムを指定
+  REFERENCES departments (id)  参照する表・カラムを指定
+  ON DELETE RESTRICT ON UPDATE RESTRICT
+     何も書かなくても、これが適用される
+
+
+外部キーにないデータの入力
+
+INSERT INTO employees
+  (name, age, birthday, department_id)
+VALUES
+  ('成田三樹夫', 38, 1935, '007');
+
+
+部署表(departments表)を修正してみる
+
+UPDATE departments
+  SET id = '007'
+  WHERE id = '002';
+
+このコマンドは外部キー制約のため失敗する。
+
+DELETE FROM departments
+  WHERE id = '003';
+
+
+
+データの修正
+
+UPDATE employees
+  SET name = '菅原文雄'
+  WHERE id = 1;
+
+
+データの削除
+
+DELETE FROM employees
+  WHERE id = 1;
+
+
+全データの削除(auto_incrementは初期化されない)
+
+DELETE FROM employees;
+
+
+全データの削除
+
+TRUNCATE employees;
+
+
+データの表示・検索
+
+SELECT * FROM employees
+  WHERE name LIKE '%葉%';
+

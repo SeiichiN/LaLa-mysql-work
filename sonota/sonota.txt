@@ -1,0 +1,38 @@
+
+
+create database sonota;
+
+use sonota;
+
+create table students (
+  id   char(3),
+  name varchar(20)
+);
+
+nameカラムの修正 (NOT NULL を追加)
+
+ALTER TABLE students
+  MODIFY
+  name varchar(20) NOT NULL;
+
+
+カラム名の修正
+
+ALTER TABLE students
+  CHANGE name st_name VARCHAR(20) NOT NULL;
+
+
+カラムの追加
+
+ALTER TABLE students
+  ADD
+  age INT NOT NULL;
+
+
+プライマリーキーの追加
+
+ALTER TABLE students
+  ADD
+  PRIMARY KEY (id);
+
+
